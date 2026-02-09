@@ -12,12 +12,14 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Create assets directory
         run: mkdir -p assets
 
-      - uses: zeljko97/gh-space-shooter@v1
+      - name: Generate Space Shooter GIF
+        uses: zeljko97/gh-space-shooter@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           output-path: assets/space-shooter.gif
